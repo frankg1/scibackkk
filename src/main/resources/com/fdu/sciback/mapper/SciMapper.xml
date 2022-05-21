@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fdu.sciback.mapper.SciMapper">
+
+<!--    <typeHandlers>-->
+<!--        <typeHandler handler="com.fdu.sciback.tool.JacksonTypeHandler"/>-->
+<!--    </typeHandlers>-->
+
+
+
+    <!--    <resultMap id="userResultMap" type="org.sang.bean.User">-->
+<!--        <result typeHandler="org.sang.db.MyDateTypeHandler" column="regTime" javaType="java.util.Date"-->
+<!--                jdbcType="VARCHAR"-->
+<!--                property="regTime"/>-->
+<!--    </resultMap>-->
+
+    <resultMap id="sciResultMap" type="com.fdu.sciback.entity.scis.SciEntity">
+        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="publications"  javaType="List"
+                jdbcType="VARCHAR"
+                property="publications"/>
+        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="experts" javaType="List"
+                jdbcType="VARCHAR"
+                property="experts"/>
+        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="childnodes" javaType="List"
+                jdbcType="VARCHAR"
+                property="childnodes"/>
+    </resultMap>
+
+    <resultMap id="fieldsResultMap" type="com.fdu.sciback.entity.scis.FieldsEntity">
+        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="childnodes" javaType="List"
+                jdbcType="VARCHAR"
+                property="childnodes"/>
+    </resultMap>
+
+
+
+    <select id="queryAll"  resultMap="sciResultMap">
+        select * from scikg limit 5
+    </select>
+
+    <select id="getFieldByLevel" resultMap="fieldsResultMap">
+        select *
+        from scikg
+        where level = #{level} limit #{nums}
+    </select>
+
+    <select id="getFieldById" resultMap="fieldsResultMap">
+        select *
+        from scikg
+        where id = #{id}
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

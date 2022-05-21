@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fdu.sciback.mapper.Id2NameMapper">
+
+
+
+    <resultMap id="id2NameResultMap" type="com.fdu.sciback.entity.Id2NameEntity">
+
+    </resultMap>
+
+
+
+    <select id="queryAll"  resultMap="id2NameResultMap">
+        select * from id2name limit 10
+    </select>
+
+    <select id="getId2NameById" resultMap="id2NameResultMap">
+        select *
+        from id2name
+        where id = #{id}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

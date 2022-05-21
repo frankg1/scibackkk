@@ -1,0 +1,5 @@
+<configuration>
+    <typeHandlers>
+        <typeHandler handler="com.fdu.sciback.tool.JacksonTypeHandler"/>
+    </typeHandlers>
+</configuration>

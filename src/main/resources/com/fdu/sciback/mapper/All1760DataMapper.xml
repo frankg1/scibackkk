@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fdu.sciback.mapper.All1760DataMapper">
+
+
+
+    <resultMap id="all1760DataResultMap" type="com.fdu.sciback.entity.All1760DataEntity">
+
+    </resultMap>
+
+
+
+    <select id="queryAll"  resultMap="all1760DataResultMap">
+        select * from all1760data limit 10
+    </select>
+
+    <select id="getAll1760DataById" resultMap="all1760DataResultMap">
+        select *
+        from all1760data
+        where id = #{id}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

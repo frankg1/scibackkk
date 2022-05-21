@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fdu.sciback.mapper.DblpMapper">
+
+
+
+    <resultMap id="dblpResultMap" type="com.fdu.sciback.entity.DblpEntity">
+<!--        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="authors"  javaType="Object"-->
+<!--                jdbcType="VARCHAR"-->
+<!--                property="authors"/>-->
+<!--        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="references1"  javaType="Object"-->
+<!--                jdbcType="VARCHAR"-->
+<!--                property="references1"/>-->
+<!--        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="url"  javaType="Object"-->
+<!--                jdbcType="VARCHAR"-->
+<!--                property="url"/>-->
+<!--        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="indexed_abstract"  javaType="Object"-->
+<!--                jdbcType="VARCHAR"-->
+<!--                property="indexed_abstract"/>-->
+    </resultMap>
+
+
+
+    <select id="queryAll"  resultMap="dblpResultMap">
+       select * from dblp limit 10
+    </select>
+
+    <select id="getPaperById" resultMap="dblpResultMap">
+        select * from dblp
+        where id = #{id}
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
