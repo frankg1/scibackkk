@@ -30,4 +30,6 @@ public class All1760DataController {
     public All1760DataEntity getById(@PathVariable("id") Integer id) {
         return all1760DataService.getAll1760DataById(id);
     }
+
+
 }
