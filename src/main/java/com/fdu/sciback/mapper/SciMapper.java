@@ -1,7 +1,6 @@
 package com.fdu.sciback.mapper;
 
 import com.fdu.sciback.entity.scis.FieldsEntity;
-import com.fdu.sciback.entity.scis.PublicationsEntity;
 import com.fdu.sciback.entity.scis.SciEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

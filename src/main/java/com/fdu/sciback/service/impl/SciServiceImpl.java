@@ -1,10 +1,8 @@
 package com.fdu.sciback.service.impl;
 
 import com.fdu.sciback.entity.scis.FieldsEntity;
-import com.fdu.sciback.entity.scis.PublicationsEntity;
 import com.fdu.sciback.entity.scis.SciEntity;
 import com.fdu.sciback.mapper.SciMapper;
-import com.fdu.sciback.service.ISciFieldsService;
 import com.fdu.sciback.service.ISciService;
 
 import net.sf.json.JSONArray;
@@ -12,7 +10,6 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,12 +40,13 @@ public class SciServiceImpl implements ISciService {
      */
     private JSONObject result;
 
-
-
-
     @Autowired
     private SciMapper sciMapper;
 
+
+
+
+    
     @Override
     public List<SciEntity> queryAll() {
         return sciMapper.queryAll();
