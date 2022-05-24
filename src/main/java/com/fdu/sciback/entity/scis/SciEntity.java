@@ -20,6 +20,7 @@ public class SciEntity {
     private List<Integer> childnodes;
     private List<Expert> experts;
     private List<Publication> publications;
+    private int publications_num;
 
     public static class Expert {
         private String id;

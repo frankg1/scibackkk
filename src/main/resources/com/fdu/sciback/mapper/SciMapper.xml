@@ -36,7 +36,6 @@
     </resultMap>
 
 
-
     <select id="queryAll"  resultMap="sciResultMap">
         select * from scikg limit 5
     </select>
@@ -44,7 +43,7 @@
     <select id="getFieldByLevel" resultMap="fieldsResultMap">
         select *
         from scikg
-        where level = #{level} limit #{nums}
+        where level = #{level} order by random() limit #{nums}
     </select>
 
     <select id="getFieldById" resultMap="fieldsResultMap">
@@ -53,6 +52,11 @@
         where id = #{id}
     </select>
 
+    <select id="getPublicationById" resultMap="sciResultMap" parameterType="java.lang.Integer">
+        select publications
+        from scikg
+        where id = #{id}
+    </select>
 </mapper>
 
 

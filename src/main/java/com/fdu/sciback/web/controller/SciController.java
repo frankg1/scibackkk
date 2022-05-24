@@ -1,8 +1,10 @@
 package com.fdu.sciback.web.controller;
 
 import com.fdu.sciback.entity.scis.FieldsEntity;
+import com.fdu.sciback.entity.scis.PublicationsEntity;
 import com.fdu.sciback.entity.scis.SciEntity;
 import com.fdu.sciback.service.ISciService;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,5 +23,10 @@ public class SciController {
     @GetMapping("/fields")
     public JSONObject getFields(){
         return sciService.getFields();
+    }
+
+    @GetMapping("/publications/{id}")
+    public List<SciEntity.Publication> getNumsOfPublicationsById(@PathVariable("id") Integer id) {
+        return sciService.getPublicationsById(id);
     }
 }
