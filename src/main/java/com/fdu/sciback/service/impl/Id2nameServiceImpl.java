@@ -20,4 +20,8 @@ public class Id2nameServiceImpl implements IId2NameService {
         return id2NameMapper.getId2NameById(id);
     }
 
+    public Id2NameEntity getId2NameByName(final String name) {
+        return id2NameMapper.getId2NameByName(name);
+    }
+
 }

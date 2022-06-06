@@ -26,4 +26,9 @@ public class Id2NameController {
     public Id2NameEntity getById(@PathVariable("id") Integer id) {
         return id2NameService.getId2NameById(id);
     }
+
+    @GetMapping(value = "/name/{name}")
+    public Id2NameEntity getByName(@PathVariable("name") String name) {
+        return id2NameService.getId2NameByName(name);
+    }
 }

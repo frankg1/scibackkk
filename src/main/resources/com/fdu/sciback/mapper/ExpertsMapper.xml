@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fdu.sciback.mapper.ExpertsMapper">
+    <resultMap id="ExpertsResultMap" type="com.fdu.sciback.entity.ExpertsEntity">
+        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="interests" javaType="List"
+                jdbcType="VARCHAR"
+                property="interests"/>
+    </resultMap>
+
+    <select id="getExpertsEntityById" resultMap="ExpertsResultMap">
+        select * from experts
+        where id = #{id}
+    </select>
+</mapper>

@@ -40,6 +40,14 @@
         select * from scikg limit 5
     </select>
 
+    <select id="getSciEntityById" resultMap="sciResultMap">
+        select * from scikg where id = #{id}
+    </select>
+
+    <select id="getSciEntity" resultMap="sciResultMap">
+        select * from scikg order by random() limit #{nums}
+    </select>
+
     <select id="getFieldByLevel" resultMap="fieldsResultMap">
         select *
         from scikg

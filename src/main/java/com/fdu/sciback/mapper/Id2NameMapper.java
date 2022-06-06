@@ -11,4 +11,6 @@ public interface Id2NameMapper {
     List<Id2NameEntity> queryAll();
 
     Id2NameEntity getId2NameById(@Param("id") int id);
+
+    Id2NameEntity getId2NameByName(@Param("name") String name);
 }

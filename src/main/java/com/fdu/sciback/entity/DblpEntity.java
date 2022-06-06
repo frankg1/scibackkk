@@ -2,6 +2,7 @@ package com.fdu.sciback.entity;
 
 import lombok.Data;
 
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -11,7 +12,7 @@ public class DblpEntity {
 
     private String title;
 
-    private Object authors;
+    private List<Object> authors;
 
     private Object venue;
 
@@ -52,5 +53,12 @@ public class DblpEntity {
     private String abstract1;
 
     private Object indexed_abstract;
+
+    public static class Author {
+        private String _id;
+        private String name;
+        private String org;
+        private String orgid;
+    }
 
 }

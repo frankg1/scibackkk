@@ -23,4 +23,7 @@ public interface SciMapper {
 
     SciEntity getPublicationById(@Param("id") Integer id);
 
+    SciEntity getSciEntityById(@Param("id") Integer id);
+    List<SciEntity> getSciEntity(@Param("nums") Integer nums);
+
 }

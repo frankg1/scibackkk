@@ -11,4 +11,8 @@ public interface DblpMapper {
     List<DblpEntity> queryAll();
 
     DblpEntity getPaperById(@Param("id") String id);
+
+    List<DblpEntity> getAuthors();
+
+    List<DblpEntity> getDblpEntityByKeyword(@Param("keyword") String keyword);
 }

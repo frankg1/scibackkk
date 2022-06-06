@@ -22,6 +22,12 @@
         from id2name
         where id = #{id}
     </select>
+
+    <select id="getId2NameByName" resultMap="id2NameResultMap">
+        select *
+        from id2name
+        where name like '%'||#{name}||'%'
+    </select>
 </mapper>
 
 

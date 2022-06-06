@@ -9,4 +9,6 @@ public interface IId2NameService {
     List<Id2NameEntity> queryAll();
 
     Id2NameEntity getId2NameById(int id);
+
+    Id2NameEntity getId2NameByName(final String name);
 }

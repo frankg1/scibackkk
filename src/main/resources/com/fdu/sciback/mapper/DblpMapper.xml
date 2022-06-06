@@ -8,9 +8,9 @@
 
 
     <resultMap id="dblpResultMap" type="com.fdu.sciback.entity.DblpEntity">
-<!--        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="authors"  javaType="Object"-->
-<!--                jdbcType="VARCHAR"-->
-<!--                property="authors"/>-->
+        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="authors"  javaType="List"
+                jdbcType="VARCHAR"
+                property="authors"/>
 <!--        <result typeHandler="com.fdu.sciback.tool.JacksonTypeHandler" column="references1"  javaType="Object"-->
 <!--                jdbcType="VARCHAR"-->
 <!--                property="references1"/>-->
@@ -33,6 +33,14 @@
         where id = #{id}
     </select>
 
+    <select id="getAuthors" resultMap="dblpResultMap">
+        select title, authors from dblp limit 10
+    </select>
+
+    <select id="getDblpEntityByKeyword" resultMap="dblpResultMap">
+        select * from dblp
+        where keywords like '%'||#{keyword}||'%' order by random() limit 30
+    </select>
 </mapper>
 
 

@@ -1,6 +1,8 @@
 package com.fdu.sciback.service;
 
+import com.alibaba.fastjson.JSONArray;
 import com.fdu.sciback.entity.DblpEntity;
+
 import java.util.List;
 
 public interface IDblpService {
@@ -8,4 +10,7 @@ public interface IDblpService {
 
     DblpEntity getPaperById(String id);
 
+    JSONArray getAuthors();
+
+    List<DblpEntity> getDblpBykeyword(final String keyword);
 }

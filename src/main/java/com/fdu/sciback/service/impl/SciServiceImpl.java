@@ -1,5 +1,6 @@
 package com.fdu.sciback.service.impl;
 
+import com.fdu.sciback.entity.DblpEntity;
 import com.fdu.sciback.entity.scis.FieldsEntity;
 import com.fdu.sciback.entity.scis.SciEntity;
 import com.fdu.sciback.mapper.SciMapper;
@@ -46,7 +47,7 @@ public class SciServiceImpl implements ISciService {
 
 
 
-    
+
     @Override
     public List<SciEntity> queryAll() {
         return sciMapper.queryAll();
@@ -81,6 +82,8 @@ public class SciServiceImpl implements ISciService {
             this.indexFields(result.getJSONArray("data"), 1, i);
         }
 
+        result.put("checkedKey", fieldCheckedId);
+        result.put("expendKey", levelNums+1);
         return result;
     }
 
@@ -110,6 +113,9 @@ public class SciServiceImpl implements ISciService {
             JSONObject row = lists.getJSONObject(i);
             if(cur == max) {
                 row.put("id", ++fieldTotalNums);
+                if (max == levelDepth && fieldCheckedId == -1) {
+                    fieldCheckedId = fieldTotalNums;
+                }
             } else {
                 indexFields(row.getJSONArray("children"), cur+1, max);
             }
@@ -123,5 +129,41 @@ public class SciServiceImpl implements ISciService {
         } else {
             return null;
         }
+    }
+
+    public JSONArray getSciDatasByIds(List<Integer> ids) {
+        JSONArray datas = new JSONArray();
+        for(int i=0; i<ids.size(); i++) {
+            SciEntity sci = sciMapper.getSciEntityById(ids.get(i));
+            if(sci != null) {
+                JSONObject obj = new JSONObject();
+                List<SciEntity.Expert> exps = sci.getExperts();
+                List<SciEntity.Publication> pubs = sci.getPublications();
+                obj.put("name", sci.getName_zh());
+                obj.put("experts", exps);
+                obj.put("expertsNums", exps.size());
+                obj.put("publicationsNums", pubs.size());
+                datas.add(obj);
+            }
+        }
+        return datas;
+    }
+
+    public JSONObject getSciFields() {
+        //抽取数据
+        final int nums = 30;
+        JSONObject result = new JSONObject();
+        JSONArray fields = new JSONArray();
+        List<SciEntity> scis = sciMapper.getSciEntity(nums);
+        for(int i=0; i<scis.size(); i++) {
+            SciEntity sci = scis.get(i);
+            JSONObject obj = new JSONObject();
+            obj.put("id", sci.getId());
+            obj.put("fieldName", sci.getName_zh());
+            fields.add(obj);
+        }
+        result.put("activeId", fields.getJSONObject(0).get("id"));
+        result.put("data", fields);
+        return result;
     }
 }
